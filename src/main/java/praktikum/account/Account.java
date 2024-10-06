@@ -7,11 +7,15 @@ public class Account {
         this.name = name;
     }
 
+
     public boolean checkNameToEmboss() {
-        /*
-             Этот метод должен проверять, что сохранённая через конструктор строка соответствует требованиям.
-             Если строка удовлетворяет условиям, метод возвращает true, иначе — false. Что-то
-         */
-        return false;
+        if (name.length() < 3 || name.length() > 19) {
+            return false;
+        }
+        if (name.startsWith(" ") || name.endsWith(" ")) {
+            return false;
+        }
+        return name.matches("^[^ ]+ [^ ]+$"); // регулярное выражение для проверки наличия пробела внутри строки
     }
 }
+
