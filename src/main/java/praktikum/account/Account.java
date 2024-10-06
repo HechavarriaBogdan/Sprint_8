@@ -9,11 +9,15 @@ public class Account {
 
 
     public boolean checkNameToEmboss() {
-        if (name.length() < 3 || name.length() > 19) {
-            return false;
-        }
-        if (name.startsWith(" ") || name.endsWith(" ")) {
-            return false;
+        try {
+            if (name.length() < 3 || name.length() > 19) {
+                return false;
+            }
+            if (name.startsWith(" ") || name.endsWith(" ")) {
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Name can't be null");
         }
         return name.matches("^[^ ]+ [^ ]+$"); // регулярное выражение для проверки наличия пробела внутри строки
     }

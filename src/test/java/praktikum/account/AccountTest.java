@@ -21,12 +21,15 @@ public class AccountTest {
     @Parameterized.Parameters(name = "name is {0}")
     public static Object[][] nameVariants() {
         return new Object[][] {
+                {"J D", true}, // 3 символа
+                {"John Doeertyuiopqwe", true}, // 19 символов
                 {"Тимоти Шаламе", true},
-                {"Ти", false},
-                {"Тимоти Сентиментальный", false},
-                {"ТимотейШевроле", false},
-                {" ТимотиШаламе", false},
-                {"ТимотиШаламе ", false}
+                {"Ти", false}, // 2 символа
+                {"Тимоти Сентиментальн", false}, // 20 символов
+                {"ТимотейШевроле", false}, // без пробелов
+                {" ТимотиШаламе", false}, // пробел в начале
+                {"ТимотиШаламе ", false}, // пробел в конце
+                {" ", false}, // пустой ввод
         };
     }
 
@@ -38,10 +41,5 @@ public class AccountTest {
         assertEquals(expected, actual);
     }
 
-    /** String validName = "Тимоти Шаламе";
-    String nameLessThanThree = "Ти";
-    String nameMoreThanNineteen = "Тимоти Сентиментальный";
-    String nameWithoutSpace = "ТимотейШевроле";
-    String nameWithSpaceInStart = " ТимотиШаламе";
-    String nameWithSpaceInEnd = "ТимотиШаламе "; */
+
 }
