@@ -1,6 +1,7 @@
 package praktikum.account;
 
 import io.qameta.allure.Allure;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -34,6 +35,7 @@ public class AccountTest {
     }
 
     @Test
+    @DisplayName("Check different names")
     public void checkName() {
         Allure.parameter("name", name);
         Account account = new Account(name);
